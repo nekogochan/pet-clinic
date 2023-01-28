@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<databaseChangeLog
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+                      http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-4.17.xsd">
+    <changeSet id="2" author="core">
+        <createTable tableName="PET">
+            <column name="ID" type="int(19)">
+                <constraints primaryKey="true" nullable="false"/>
+            </column>
+            <column name="NAME" type="varchar(255)">
+                <constraints nullable="true"/>
+            </column>
+            <column name="PET_OWNER_ID" type="int(19)">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+        <addAutoIncrement tableName="PET" columnName="ID"/>
+        <addForeignKeyConstraint baseTableName="PET" baseColumnNames="PET_OWNER_ID"
+                                 constraintName="FK_PET_PET_OWNER_ID"
+                                 referencedTableName="PET_OWNER" referencedColumnNames="ID"/>
+    </changeSet>
+</databaseChangeLog>
