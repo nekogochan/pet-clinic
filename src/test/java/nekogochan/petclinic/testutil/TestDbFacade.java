@@ -6,11 +6,13 @@ import org.springframework.boot.test.autoconfigure.orm.jpa.TestEntityManager;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.jdbc.core.JdbcTemplate;
+import org.springframework.stereotype.Component;
 import org.springframework.test.jdbc.JdbcTestUtils;
 import org.springframework.transaction.support.TransactionTemplate;
 
 import java.util.Arrays;
 
+@Component
 @SuppressWarnings("SpringJavaAutowiredMembersInspection")
 public class TestDbFacade {
     @Autowired
