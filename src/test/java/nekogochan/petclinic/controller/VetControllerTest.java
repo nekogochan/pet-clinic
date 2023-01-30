@@ -1,28 +1,24 @@
 package nekogochan.petclinic.controller;
 
 import nekogochan.petclinic.entity.Vet;
+import nekogochan.petclinic.testutil.DbTest;
 import nekogochan.petclinic.testutil.TestDbFacade;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.boot.test.autoconfigure.orm.jpa.AutoConfigureDataJpa;
-import org.springframework.boot.test.autoconfigure.orm.jpa.AutoConfigureTestEntityManager;
-import org.springframework.boot.test.context.SpringBootTest;
-import org.springframework.context.annotation.Import;
+import org.springframework.boot.test.autoconfigure.web.servlet.AutoConfigureWebMvc;
 
 import java.util.stream.Collectors;
 
 import static nekogochan.petclinic.entity.VetTestBuilder.aVet;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
-@SpringBootTest
-@AutoConfigureTestEntityManager
-@AutoConfigureDataJpa
-@Import(TestDbFacade.Config.class)
+@DbTest
+@AutoConfigureWebMvc
 class VetControllerTest {
 
     @Autowired
-    VetController vetController;
+    private VetController vetController;
     @Autowired
     private TestDbFacade db;
 
