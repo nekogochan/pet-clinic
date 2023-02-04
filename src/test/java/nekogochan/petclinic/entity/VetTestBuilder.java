@@ -1,16 +1,22 @@
 package nekogochan.petclinic.entity;
 
-import lombok.AccessLevel;
-import lombok.AllArgsConstructor;
-import lombok.NoArgsConstructor;
-import lombok.With;
 import nekogochan.petclinic.testutil.TestBuilder;
 
-@AllArgsConstructor
-@NoArgsConstructor(access = AccessLevel.PRIVATE)
-@With
 public class VetTestBuilder implements TestBuilder<Vet> {
     private String name = "name";
+
+    private VetTestBuilder() {
+    }
+
+    public VetTestBuilder(VetTestBuilder that) {
+        this.name = that.name;
+    }
+
+    public VetTestBuilder name(String name) {
+        var that = new VetTestBuilder(this);
+        that.name = name;
+        return that;
+    }
 
     public static VetTestBuilder aVet() {
         return new VetTestBuilder();

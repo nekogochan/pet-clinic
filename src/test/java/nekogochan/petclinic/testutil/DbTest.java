@@ -5,6 +5,7 @@ import org.springframework.boot.test.autoconfigure.jdbc.AutoConfigureTestDatabas
 import org.springframework.boot.test.autoconfigure.orm.jpa.DataJpaTest;
 import org.springframework.context.annotation.Import;
 import org.springframework.core.annotation.AliasFor;
+import org.springframework.test.context.ActiveProfiles;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.lang.annotation.Retention;
@@ -14,6 +15,7 @@ import static org.springframework.boot.test.autoconfigure.jdbc.AutoConfigureTest
 import static org.springframework.transaction.annotation.Propagation.NOT_SUPPORTED;
 
 @Retention(RetentionPolicy.RUNTIME)
+@ActiveProfiles("db-test")
 @DataJpaTest
 @AutoConfigureTestDatabase(replace = NONE)
 @Import({TestDbFacade.Config.class})

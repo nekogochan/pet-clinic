@@ -50,7 +50,7 @@ public class TestDbFacade {
         cleanTables(tableNames);
     }
 
-    public <T> T find(Class<T> entityClass, Object id) {
+    public <T> T load(Class<T> entityClass, Object id) {
         return transactionTemplate.execute(__ -> testEntityManager.find(entityClass, id));
     }
 
